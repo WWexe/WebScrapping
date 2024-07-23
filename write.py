@@ -15,8 +15,10 @@ import os
 navegador = webdriver.Edge()
 navegador.get("https://bedinsat.com.br/panel/_login.php")
 
-navegador.find_element("xpath", '/html/body/div[1]/div/div[2]/div/div[2]/form/div/ul/li[3]/input').send_keys("luiz")
-navegador.find_element("xpath", '/html/body/div[1]/div/div[2]/div/div[2]/form/div/ul/li[5]/input').send_keys("C4771070bedin")
+navegador.find_element("xpath", '/html/body/div[1]/div/div[2]/div/div[2]/form/div/ul/li[3]/input').send_keys("**ADMIN**")
+#Login
+navegador.find_element("xpath", '/html/body/div[1]/div/div[2]/div/div[2]/form/div/ul/li[5]/input').send_keys("**********")
+#Password
 botao_entrar = navegador.find_element("xpath", '/html/body/div[1]/div/div[2]/div/div[2]/form/div/ul/li[7]/input')
 botao_entrar.click()
 time.sleep(2)
