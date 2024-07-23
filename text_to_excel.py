@@ -16,12 +16,10 @@ while True:
          open(arquivo_entrada_es, 'r', encoding='utf-8') as arquivoES:
              
         while True:
-            # Extrair o texto da primeira linha do arquivo de títulos português
             tituloBR = arquivoBR.readline().strip()
             tituloEN = arquivoEN.readline().strip()
             tituloES = arquivoES.readline().strip()
 
-            # Se todos os títulos estiverem vazios, sair do loop 
             if not tituloBR and not tituloEN and not tituloES:
                 break
 

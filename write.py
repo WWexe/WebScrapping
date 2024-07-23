@@ -45,7 +45,6 @@ wb_descricao_br = load_workbook(arquivo_descricao_br)
 wb_descricao_en = load_workbook(arquivo_descricao_en)
 wb_descricao_es = load_workbook(arquivo_descricao_es)
 
-# Obter as planilhas ativas dos arquivos Excel
 ws_descricao_br = wb_descricao_br.active
 ws_descricao_en = wb_descricao_en.active
 ws_descricao_es = wb_descricao_es.active
@@ -81,7 +80,6 @@ while True:
             if not tituloBR and not tituloEN and not tituloES and not codigos:
                 break
             
-            # Imprimir os títulos
             time.sleep(1)
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[1]/td[2]/input[1]').send_keys(tituloBR+"-Z")
             time.sleep(1)
@@ -89,10 +87,8 @@ while True:
             time.sleep(1)
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[1]/td[2]/input[3]').send_keys(tituloES+"-Z")
 
-            # Espera um tempo antes de continuar
             time.sleep(2)
 
-            # Insere os resumos nos campos correspondentes
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[2]/td[2]/input[1]').send_keys(tituloBR+"-Z")
             time.sleep(1)
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[2]/td[2]/input[2]').send_keys(tituloEN+"-Z")
@@ -101,18 +97,13 @@ while True:
             
             time.sleep(2)
             
-            # Imprimir os codigos 
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[3]/td[2]/input').send_keys(codigos+"-Z")
             time.sleep(1)
 
-            # Seleciona a categoria "Academia"
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[4]/td[2]/div[3]/label').click()
-            # Seu código para selecionar a categoria
             
-            # Esperar um pouco antes de continuar para garantir que o elemento seja carregado corretamente
             time.sleep(2)
             
-            # Trocar para o iframe e enviar a descrição
             iframe = WebDriverWait(navegador, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'iframe[title="Editor de Texto,pro_descricao_br"]')))
             navegador.switch_to.frame(iframe)
             html_tag = navegador.find_element(By.TAG_NAME,'html')
@@ -144,24 +135,17 @@ while True:
             navegador.switch_to.default_content()
             time.sleep(3)
             
-            # Imprimir uma tag fixa na area "Tags"
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[6]/td[2]/input').send_keys(',academia,')
             time.sleep(1)
             
-            # Imprimir a ordem na area "Ordem"
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[7]/td[2]/input').send_keys(ordem)
             time.sleep(3)
             
-            # Marca "sim" em "Mostrar"
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/table/tbody/tr[8]/td[2]/label/input').click()
             
             time.sleep(10000)            
-            #Clica em "Gravar" para gravar o produto 
             navegador.find_element("xpath", '/html/body/div[4]/div/div[2]/div[1]/form/div/button[1]').click()
-            
-            # Avançar para a próxima linha nos arquivos Excel
-            # Avançar para a próxima linha nos arquivos de entrada
-            
+                        
             time.sleep(3)
             
             #navegador.find_element("xpath", '/html/body/div[4]/table/tbody/tr[1]/td[2]/a/img').click()
@@ -184,7 +168,6 @@ while True:
             pyautogui.press('enter')
             navegador.find_element("xpath", '/html/body/div[4]/div[3]/div[5]/div/table/tbody/tr/td/a').click()
             
-            # Pula uma linha nos arquivos
             arquivoTitleBR.readline()
             arquivoTitleEN.readline()
             arquivoTitleES.readline()

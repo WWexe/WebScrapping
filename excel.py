@@ -1,9 +1,7 @@
 import pandas as pd
 import os
 
-# Função para converter arquivo de texto para Excel
 def converter_txt_para_excel(arquivo_entrada, pasta_saida):
-    # Carrega o arquivo de texto para um DataFrame
     df = pd.read_csv(arquivo_entrada, delimiter='\t')  
     
     nome_arquivo_saida = os.path.join(pasta_saida, os.path.splitext(os.path.basename(arquivo_entrada))[0] + '.xlsx')
